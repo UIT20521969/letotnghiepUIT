@@ -1,0 +1,585 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* 📌 Bọc bì thư toàn màn hình */
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+/* 📩 Bì thư luôn giữ hình chữ nhật, hiển thị đúng trên mọi màn hình */
+.envelope {
+    position: relative;
+    width: 90vw;
+    height: 60vh;
+    max-width: 600px;  /* Giới hạn chiều rộng tối đa */
+    max-height: 400px; /* Giới hạn chiều cao tối đa */
+    background-color: #f095d3;
+    border-radius: 5px;
+    transition: transform 0.6s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    overflow: hidden;
+}
+
+/* 📨 Nắp bì thư (SỬA LẠI - Luôn hiển thị trên cả máy tính & điện thoại) */
+.flap {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 40%;
+    background-color: #e86cb6e6;
+    clip-path: polygon(0% 0%, 100% 0%, 50% 100%); /* Tam giác đúng hướng */
+    transform-origin: top;
+    transition: transform 0.6s ease-in-out;
+    z-index: 3;
+}
+
+/* 📜 Thân bì thư */
+.envelope-body {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60%;
+    background-color: #f36fbee6;
+    border-radius: 5px;
+    transition: transform 0.6s ease-in-out;
+    z-index: 1;
+}
+
+/* ✉️ Nội dung thư */
+.letter {
+    position: absolute;
+    bottom: 0;
+    width: 90%;
+    height: 80%;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center;
+    opacity: 0; /* Ẩn thư ban đầu */
+    transition: opacity 0.6s ease-in-out;
+    z-index: 2;
+}
+
+/* 📂 Khi cuộn xuống: Mở bì thư */
+.open .flap {
+    transform: rotateX(180deg); /* Nắp bì thư lật lên */
+}
+
+.open .envelope-body {
+    transform: translateY(100vh); /* Đáy bì thư trượt xuống */
+}
+
+.open .letter {
+    opacity: 1; /* Hiển thị thư */
+}
+
+/* Hình ảnh header */
+.header-img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+/* Hình ảnh minh họa trong phần giới thiệu */
+.image-section {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.celebration-img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Hình ảnh trong form */
+.form-icon {
+    display: block;
+    width: 80px;
+    margin: 0 auto 10px;
+    opacity: 0.8;
+}
+
+/* Ảnh nền toàn trang */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: url('media/body.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+/* Làm mờ nền để dễ đọc nội dung */
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    background: rgba(76, 207, 255, 0.521); /* Nền trắng có độ mờ */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Đặt ảnh nền cho header */
+header {
+    position: relative;
+    background: url('media/header.jpg') no-repeat center center;
+    background-size: cover;
+    height: 250px; /* Điều chỉnh chiều cao tùy ảnh */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+}
+
+/* Tạo lớp phủ tối giúp chữ nổi bật */
+header::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Lớp phủ đen trong suốt */
+    border-radius: 10px 10px 0 0;
+}
+
+/* Chữ nằm trên ảnh */
+header h1,
+header p,
+.event-time,
+.countdown {
+    position: relative;
+    z-index: 1;
+    margin: 5px 0;
+}
+
+/* Thời gian tổ chức */
+.event-time {
+    font-size: 18px;
+    background: rgba(255, 255, 255, 0.3);
+    padding: 8px 15px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* Bộ đếm ngược */
+.countdown {
+    font-size: 22px;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.3);
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 5px #fff, 0 0 10px #e7ff5c, 0 0 15px #e7ff5c; }
+    50% { text-shadow: 0 0 10px #fff, 0 0 20px #ff7eb3, 0 0 30px #ff758c; }
+    100% { text-shadow: 0 0 5px #fff, 0 0 10px #ff7eb3, 0 0 15px #ff758c; }
+}
+
+h1 {
+    animation: glow 1.5s infinite alternate;
+}
+/* Phần chính của gallery */
+.photo-gallery {
+    text-align: center;
+    padding: 40px 20px;
+    background: #f9f9f952;
+    border-radius: 10px;
+}
+
+/* Bọc ảnh & chú thích */
+.gallery-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px auto;
+    max-width: 800px;
+    padding: 15px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0; /* Ẩn ban đầu */
+    transform: translateX(-50px); /* Lùi ra ngoài ban đầu */
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* Khi hiển thị trên màn hình */
+.gallery-item.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Ảnh */
+.gallery-item img {
+    width: 45%;
+    max-width: 350px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Chú thích */
+.caption {
+    width: 45%;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-style: italic;
+    background: rgba(255, 255, 255, 0.8);
+    border-left: 4px solid #0073e6;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    opacity: 0; /* Ẩn ban đầu */
+    transform: translateX(50px); /* Trượt từ phải vào */
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* Khi hiển thị trên màn hình */
+.gallery-item.show .caption {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Căn chỉnh so le */
+.gallery-item.left img {
+    order: 1; /* Ảnh bên trái */
+}
+
+.gallery-item.left .caption {
+    order: 2; /* Chú thích bên phải */
+}
+
+.gallery-item.right img {
+    order: 2; /* Ảnh bên phải */
+}
+
+.gallery-item.right .caption {
+    order: 1; /* Chú thích bên trái */
+    border-left: none;
+    border-right: 4px solid #0073e6;
+}
+
+/* Responsive: Chỉnh sửa trên điện thoại */
+@media (max-width: 268px) {
+    .gallery-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .gallery-item img,
+    .caption {
+        width: 90%;
+    }
+
+    .gallery-item.right .caption {
+        text-align: left;
+        border-right: none;
+        border-left: 4px solid #0073e6;
+    }
+}
+
+/* Phần chứa địa điểm */
+.location-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 2vw; /* Khoảng cách giữa text và map */
+    padding: 3vh 2vw; /* Điều chỉnh khoảng cách theo màn hình */
+    background: #f9f9f900;
+    border-radius: 10px;
+    width: 90vw; /* Scale theo cửa sổ */
+    margin: auto;
+}
+
+/* Google Map */
+.location-map {
+    width: 50vw; /* Scale theo cửa sổ */
+    max-width: 600px;
+    height: 35vh; /* Điều chỉnh chiều cao theo màn hình */
+    max-height: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Đảm bảo iframe Google Map chiếm toàn bộ thẻ cha */
+.location-map iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+/* Responsive: Trên màn hình nhỏ, map xếp dưới */
+@media (max-width: 268px) {
+    .location-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .location-box {
+        width: 90%; /* Chiếm toàn bộ chiều rộng */
+    }
+
+    .location-map {
+        width: 90%;
+        height: 40vh; /* Map cao hơn trên điện thoại */
+    }
+}
+
+/* Phần chứa địa điểm */
+.location-box {
+    display: inline-block;
+    padding: 3vh 2vw; /* Điều chỉnh khoảng cách theo màn hình */
+    font-size: 18px;
+    font-weight: bold;
+    border: 2px solid #0073e6; /* Viền xanh nổi bật */
+    border-radius: 10px;
+    background: rgb(255, 255, 255); /* Nền trắng có độ mờ */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Hiệu ứng bóng */
+    color: #0073e6; /* Màu chữ xanh */
+    margin: 10px auto;
+    text-align: center;
+    width: fit-content; /* Co giãn theo nội dung */
+}
+
+/* Google Map */
+.location-map {
+    width: 100vw; /* Điều chỉnh theo chiều rộng cửa sổ */
+    height: 45vh; /* Điều chỉnh theo chiều cao cửa sổ */
+    max-width: 600px; /* Giữ tỷ lệ tối đa */
+    max-height: 400px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    display: block; /* Đảm bảo không bị ảnh hưởng bởi inline */
+}
+
+.location-container {
+    display: flex;
+    justify-content: center; /* Căn giữa ngang */
+    align-items: center; /* Căn giữa dọc */
+    width: 100%;
+}
+/* 🔻 Tên góc dưới bên phải */
+.bottom-right {
+    position: fixed;
+    bottom: 2vh;
+    right: 2vw;
+    font-size: clamp(0.8rem, 1.2vw, 1rem);
+    color: white;
+    background: rgba(15, 62, 112, 0.5);
+    padding: 0.5vh 1vw;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+/* Container chứa icon mũ tốt nghiệp */
+#hat-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none; /* Không ảnh hưởng đến thao tác người dùng */
+    overflow: hidden;
+    z-index: 10;
+}
+
+/* Icon mũ tốt nghiệp */
+.hat-icon {
+    position: absolute;
+    font-size: 30px;
+    opacity: 0;
+    animation: flyHats 3s linear forwards;
+}
+
+/* Hiệu ứng bay lên */
+@keyframes flyHats {
+    0% {
+        transform: translateY(100vh) translateX(0) rotate(0);
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) translateX(calc(-50vw + 100px)) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Ảnh có thể phóng to */
+.zoomable {
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.zoomable:hover {
+    transform: scale(1.05);
+}
+
+/* Lightbox - Hiệu ứng ảnh phóng to */
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 11;
+}
+
+/* Hiển thị lightbox khi mở */
+#lightbox.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Ảnh phóng to */
+#lightbox-img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Nút đóng lightbox */
+#close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#close-lightbox:hover {
+    color: red;
+}
+
+/* Lightbox (Hiển thị ảnh phóng to) */
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#lightbox.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#lightbox-img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+}
+
+#close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#close-lightbox:hover {
+    color: red;
+}
+
+/* Nút phát nhạc */
+.music-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 24px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+}
+
+/* Hover đổi màu */
+.music-btn:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+
+h4 {
+    color: #333;
+}
+input, textarea, select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+textarea {
+    resize: none;
+    height: 100px;
+}
+#submit {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+#submit:hover {
+    background-color: #218838;
+}
+#success-message {
+    color: rgb(162, 16, 11);
+    font-size: 20px;
+    margin-top: 10px;
+    display: none;
+}

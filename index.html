@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📧Thư Mời Lễ Tốt Nghiệp</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="envelope" id="envelope">
+            <div class="flap"></div>  <!-- Nắp bì thư -->
+            <div class="letter" id="letterContent">
+                <header>
+                    <h1>🎓 Lễ Tốt Nghiệp Đại Học</h1>
+                    <p>Trân trọng kính mời bạn đến tham dự lễ tốt nghiệp của Thịnh Nè!</p>
+                </header>
+            </div>
+            <div class="envelope-body"></div>  <!-- Thân bì thư -->
+        </div>
+    </div>
+    <div class="container">
+
+        <!-- Hình ảnh minh họa sự kiện -->
+        <section class="image-section">
+            <img src="https://www.uit.edu.vn/sites/vi/files/image_from_word/tot_nghiep.jpg" alt="Khoảnh khắc đáng nhớ" class="celebration-img zoomable">
+            <p>Hãy cùng nhau lưu giữ những kỷ niệm đẹp nhất với Thịnh nha! 🎉</p>
+        </section>
+        <!-- Hiển thị thời gian tổ chức -->
+        <div class="event-time">
+            📅 <strong>Thời gian:</strong> 7:30 AM, Ngày 20/06/2025
+        </div>
+        <!-- Hiển thị bộ đếm ngược -->
+        <div id="countdown" class="countdown">
+            ⏳ Đang tải bộ đếm ngược...
+        </div>
+        <footer>
+            <p>📧 Liên hệ: Thịnh Trần</p>
+        </footer>
+    </div>
+
+    <section class="photo-gallery">
+        <h2>📸 Những năm tháng đáng nhớ tại trường</h2>
+    
+        <div class="gallery-item left">
+            <img src="media/pic1.jpg" 
+            alt="Lễ tốt nghiệp" class="zoomable">
+            <p class="caption">Khoảnh khắc tuyệt vời khi nhận chứng chỉ Quốc gia :V!</p>
+        </div>
+    
+        <div class="gallery-item right">
+            <p class="caption">Chụp ảnh lưu niệm cùng bạn bè và thầy cô! 📸</p>
+            <img src="media/pic3.jpg" 
+            alt="Chụp ảnh kỷ niệm" class="zoomable">
+        </div>
+
+        <div class="gallery-item left">
+            <p class="caption">Dự hội nghị mà buồn ngủ á mọi người ᶻ 𝗓 𐰁</p>
+            <img src="media/pic4.jpg" 
+            alt="Chụp ảnh kỷ niệm" class="zoomable">
+        </div>
+
+        <div class="gallery-item right">
+            <img src="media/pic2.jpg" 
+                alt="Lớp học vui vẻ" class="zoomable">
+            <p class="caption">Vừa tới trường cái chị hỏi "Bán mình cho tư bản không em :))"</p>
+        </div>
+
+        <div class="gallery-item left">
+            <img src="media/pic6.jpg" 
+                alt="Lớp học vui vẻ" class="zoomable">
+            <p class="caption">🏫 Lâu lâu cũng được làm center he</p>
+        </div>
+
+        <div class="gallery-item right">
+            <img src="media/pic7.jpg" 
+                alt="Lớp học vui vẻ" class="zoomable">
+            <p class="caption">Lần đầu cũng như lần cuối được trường khen :((</p>
+        </div>
+        <h2>📸 Bỗng dưng dính vào khung hình =))</h2>
+        <div class="gallery-item right">
+            <img src="media/pic8.jpg" 
+            alt="Lớp học vui vẻ" class="zoomable">
+            <img src="media/pic9.jpg" 
+            alt="Lớp học vui vẻ" class="zoomable">
+            <img src="media/pic5.jpg" 
+            alt="Lớp học vui vẻ" class="zoomable">
+            <img src="media/pic11.jpg" 
+            alt="Lớp học vui vẻ" class="zoomable">
+        </div>
+    </section>
+    
+    <!-- Thêm div nền mờ để hiển thị ảnh phóng to -->
+    <div id="lightbox" class="hidden">
+        <span id="close-lightbox">&times;</span>
+        <img id="lightbox-img" src="" alt="Zoomed Image">
+    </div>
+
+    <section class="location-section">
+        <div class="location-box">
+            <h2>📍 Địa điểm tổ chức</h2>
+            <p>Hội trường A, Trường Đại học Công Nghệ Thông Tin</p>
+            <p>Khu phố 6, Phường Linh Trung, Thủ Đức</p>
+            <h1>💗Hẹn gặp mọi người ngay cổng A tại UIT nha💗</h1>
+        </div>
+        <div class="location-map">
+            <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1959.1135360868473!2d106.80235830180823!3d10.870326296928955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317527e7e8abb0eb%3A0xec43e4b99472c18a!2zVUlUIC0gQ-G7lW5nIEE!5e0!3m2!1svi!2s!4v1741707818708!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </section>
+    <!-- Thêm thẻ audio -->
+    <audio id="bg-music" loop>
+        <source src="media/music.mp3" type="audio/mp3">
+        Trình duyệt của bạn không hỗ trợ phát nhạc.
+    </audio>
+
+    <!-- Nút bật/tắt nhạc -->
+    <button id="music-toggle" class="music-btn">🎵</button>
+
+    <div id="hat-container"></div>
+    <div class="bottom-right">💕Thịnh Nè💗</div>
+    
+    <div class="container">
+        <form id="confirmation-form">
+            <h4>Xác Nhận Tham Gia</h4>
+            
+            <input type="text" name="your-name" placeholder="Họ và Tên" required>
+            
+            <select name="confirmation" required>
+                <option value="">Bạn có tham gia không?</option>
+                <option value="Có">Có</option>
+                <option value="Không">Không</option>
+            </select>
+            <select name="wish" required>
+                <option value="Chúc mừng tốt nghiệp! Chúc bạn thành công trong tương lai!">Chúc mừng tốt nghiệp! Chúc bạn thành công trong tương lai!</option>
+                <option value="Mọi nỗ lực của bạn đã được đền đáp! Chúc bạn có một tương lai tươi sáng!">Mọi nỗ lực của bạn đã được đền đáp! Chúc bạn có một tương lai tươi sáng!</option>
+                <option value="Hãy tiếp tục theo đuổi ước mơ của mình! Chúc bạn gặt hái nhiều thành công!">Hãy tiếp tục theo đuổi ước mơ của mình! Chúc bạn gặt hái nhiều thành công!</option>
+                <option value="🎓 Chúc mừng bạn đã hoàn thành một chặng đường quan trọng! Chúc bạn gặt hái nhiều thành công trên con đường phía trước">🎓 Chúc mừng bạn đã hoàn thành một chặng đường quan trọng! Chúc bạn gặt hái nhiều thành công trên con đường phía trước!</option>
+                <option value="Chặng đường học tập đã khép lại, cánh cửa tương lai rộng mở! Chúc bạn luôn tự tin và thành công trên con đường phía trước!">Chặng đường học tập đã khép lại, cánh cửa tương lai rộng mở! Chúc bạn luôn tự tin và thành công trên con đường phía trước!</option>
+                <option value="Tạm biệt một chặng đường, chào đón hành trình mới! Chúc bạn luôn vững bước, thành công và hạnh phúc! 🌟🥂">Tạm biệt một chặng đường, chào đón hành trình mới! Chúc bạn luôn vững bước, thành công và hạnh phúc! 🌟🥂</option>
+                <option value="Một cánh cửa khép lại, cánh cửa khác mở ra. Hãy can đảm, hãy ước mơ, và hãy thành công! 🌸🎉">Một cánh cửa khép lại, cánh cửa khác mở ra. Hãy can đảm, hãy ước mơ, và hãy thành công! 🌸🎉</option>
+                <option value="Khác">Tự nhập lời chúc</option>
+            </select>
+            <input type="text" id="customWish" placeholder="Nhập lời chúc riêng của bạn (nếu có)" style="display:none;">
+            <textarea name="message" rows="4" placeholder="Lời chúc của bạn..."></textarea>
+            
+            <input type="submit" value="Gửi" id="submit">
+        </form>
+        
+        <p id="success-message">🎉 Đã gửi lời chúc thành công!</p>
+    </div>
+</body>
+
+</html>
