@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
     function updateCountdown() {
         // Ngày tổ chức lễ tốt nghiệp
-        let eventDate = new Date("June 20, 2025 7:30:00").getTime();
+        let eventDate = new Date("June 07, 2025 7:30:00").getTime();
         let now = new Date().getTime();
         let timeRemaining = eventDate - now;
 

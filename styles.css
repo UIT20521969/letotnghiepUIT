@@ -137,6 +137,7 @@ body {
 
 /* Đặt ảnh nền cho header */
 header {
+    font-family: 'Dancing Script', cursive; /* Áp dụng font chữ script */
     position: relative;
     background: url('media/header.jpg') no-repeat center center;
     background-size: cover;
@@ -147,9 +148,10 @@ header {
     align-items: center;
     color: white;
     text-align: center;
-    padding: 20px;
-    border-radius: 10px 10px 0 0;
+    padding: 50px;
+    border-radius: 5px 5px 5 5;
     overflow: hidden;
+    font-size: 120%;
 }
 
 /* Tạo lớp phủ tối giúp chữ nổi bật */
@@ -157,7 +159,7 @@ header::before {
     content: "";
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Lớp phủ đen trong suốt */
+    background: rgba(0, 0, 0, 0.513); /* Lớp phủ đen trong suốt */
     border-radius: 10px 10px 0 0;
 }
 
@@ -173,6 +175,7 @@ header p,
 
 /* Thời gian tổ chức */
 .event-time {
+    font-family: 'Courier New', Courier, monospace; /* Áp dụng font chữ đánh máy */
     font-size: 18px;
     background: rgba(255, 255, 255, 0.3);
     padding: 8px 15px;
@@ -183,6 +186,7 @@ header p,
 
 /* Bộ đếm ngược */
 .countdown {
+    font-family: 'Courier New', Courier, monospace; /* Áp dụng font chữ đánh máy */
     font-size: 22px;
     font-weight: bold;
     background: rgba(255, 255, 255, 0.3);
@@ -203,6 +207,7 @@ h1 {
 }
 /* Phần chính của gallery */
 .photo-gallery {
+    font-family: 'Agbalumo', sans-serif; /* Áp dụng font Agbalumo */
     text-align: center;
     padding: 40px 20px;
     background: #f9f9f952;
@@ -301,6 +306,7 @@ h1 {
 
 /* Phần chứa địa điểm */
 .location-section {
+    font-family: 'Playfair Display', serif; /* Áp dụng font Playfair Display */
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -554,6 +560,7 @@ h1 {
 
 
 h4 {
+    font-family: 'Charmonman', cursive; /* Áp dụng font Charmonman */
     color: #333;
 }
 input, textarea, select {
