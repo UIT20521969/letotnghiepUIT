@@ -18,10 +18,10 @@
 /* 📩 Bì thư luôn giữ hình chữ nhật, hiển thị đúng trên mọi màn hình */
 .envelope {
     position: relative;
-    width: 90vw;
-    height: 60vh;
+    width: 95vw;
+    height: 100vh;
     max-width: 600px;  /* Giới hạn chiều rộng tối đa */
-    max-height: 350px; /* Giới hạn chiều cao tối đa */
+    max-height: 450px; /* Giới hạn chiều cao tối đa */
     background-color: #f095d3;
     border-radius: 5px;
     transition: transform 0.6s ease-in-out;
@@ -153,6 +153,7 @@ header {
     border-radius: 5px 5px 5 5;
     overflow: hidden;
     font-size: 120%;
+    
 }
 
 /* Tạo lớp phủ tối giúp chữ nổi bật */
@@ -287,7 +288,7 @@ h1 {
 }
 
 /* Responsive: Chỉnh sửa trên điện thoại */
-@media (max-width: 268px) {
+@media (max-width: 480px) {
     .gallery-item {
         flex-direction: column;
         text-align: center;
@@ -303,8 +304,12 @@ h1 {
         border-right: none;
         border-left: 4px solid #0073e6;
     }
+    .envelope {
+        width: 95%;
+        max-height: 45vh;
+    }
+    
 }
-
 /* Phần chứa địa điểm */
 .location-section {
     font-family: 'Playfair Display', serif; /* Áp dụng font Playfair Display */

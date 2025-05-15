@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
     function updateCountdown() {
         // Ngày tổ chức lễ tốt nghiệp
-        let eventDate = new Date("June 07, 2025 7:30:00").getTime();
+        let eventDate = new Date("June 07, 2025 11:00:00").getTime();
         let now = new Date().getTime();
         let timeRemaining = eventDate - now;
 
@@ -234,24 +234,39 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
     const scriptURL = 'https://script.google.com/macros/s/AKfycbzVZVM-YBm4qV62RYV8QF_8r73Jytm3Qzx4T3ZyrmIOsSObbOg8R5DDgyfLVinQWK-y/exec';
-    const form = document.getElementById("confirmation-form"); // Lấy form bằng ID
+    const form = document.getElementById("confirmation-form");
+    const submitButton = document.getElementById("submit");
     const successMessage = document.getElementById("success-message");
 
     form.addEventListener("submit", function (event) {
         event.preventDefault(); // Ngăn trang tải lại
 
+        // Vô hiệu hóa nút gửi để tránh spam
+        submitButton.disabled = true;
+        submitButton.value = "Đang gửi...";
+
         let formData = new FormData(form);
 
+        // Thêm thời gian hiện tại vào form
+        let currentTime = new Date().toLocaleString("vi-VN", { timeZone: "Asia/Ho_Chi_Minh" });
+        formData.append("timestamp", currentTime);
+
         fetch(scriptURL, { method: "POST", body: formData })
-            .then(response => response.text()) // Chuyển phản hồi thành text để debug
+            .then(response => response.text())
             .then(data => {
-                console.log("Phản hồi từ Google Apps Script:", data); // Kiểm tra phản hồi
-                successMessage.style.display = "block"; // Hiển thị thông báo thành công
-                form.reset(); // Reset form sau khi gửi thành công
+                console.log("Phản hồi từ Google Apps Script:", data);
+                successMessage.style.display = "block";
+                successMessage.innerHTML = `🎉 Đã gửi lời chúc thành công!`; // Hiển thị thời gian gửi
+                form.reset();
+                submitButton.value = "Đã gửi";
             })
             .catch(error => {
                 alert("Có lỗi xảy ra! Kiểm tra kết nối mạng hoặc thử lại sau.");
                 console.error("Lỗi:", error);
+                submitButton.disabled = false;
+                submitButton.value = "Gửi";
             });
     });
 });
+
+
